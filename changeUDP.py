@@ -6,7 +6,7 @@ __author__ = 'agallo'
 '''
 the extension file must be a list of 5 digit extensions
 one per line.  no checking is done to ensure that the
-extensions valid dial plan extensions or even numbers
+entries are valid dial plan extensions or even numbers
 it must always be called extfile.  the output is always
 extfile.ossi and will be overwritten if it exists
 '''
