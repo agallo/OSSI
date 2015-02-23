@@ -1,2 +1,3 @@
 This script takes in a file of extensions (single extension per line) and creates an ooutput file
 that can be pasted into an Avaya Communications Manager (CM) terminal when set to terminal type = OSSI.
+OSSI is a hidden terminal type avaialbe when logging in via the SAT.
