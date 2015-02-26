@@ -89,8 +89,8 @@ def createOSSI():
             print >> outfile
             successcount += 1
         except:
-            print 'Skipping line ', currentline, '. It is not a number.'
-            print failcount
+           # print 'Skipping line ', currentline, '. It is not a number.'
+           # print failcount
             failcount += 1
 
     return successcount, failcount
