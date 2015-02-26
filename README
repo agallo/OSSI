@@ -2,4 +2,22 @@ This script takes in a file of extensions (single extension per line) and
 creates an ooutput file that can be pasted into an Avaya Communications
 Manager (CM) terminal when set to terminal type = OSSI.
 
+Optional command line flags are:
+    -i, --infile    file containing list of extensions
+    -o, --outfile   name of the output file to write the OSSI script to
+    -c, --checktype the type of sanity checking to be done on the input file
+
+The default input file is extfile.  The default output file is extfile.OSSI
+The default sanity checking is 'strict'.  Any other value for this parameter
+will result in 'loose' checking
+
+Strict checking will examine the file and count the number of lines that do NOT
+contain integer values.  NO output file will be created.
+
+Loose sanity checking will attempt to process the file by skipping lines with errors.
+
+Sanity checking only checks that each line contains integers.  There is no checking
+for dial plan conformity.
+
+
 OSSI is a hidden terminal type available when logging in via the SAT.
