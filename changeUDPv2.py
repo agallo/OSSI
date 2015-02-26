@@ -13,9 +13,10 @@ parser.add_argument('-i', '--infile', dest='extfile',
 parser.add_argument('-o', '--outfile', dest='outfile',
                     help="specify output file. Default is extfile.OSSI",
                     default='extfile.OSSI')
+parser.add_argument('-c', '--checktype', dest='checktype',
+                    help='Sanity checking type. Default is strict (die if file is not clean)',
+                    default='strict')
 args = parser.parse_args()
-
-print args
 
 
 '''
@@ -25,6 +26,8 @@ entries are valid dial plan extensions
 '''
 extensions = open(args.extfile, 'r')
 outfile = open(args.outfile, 'w')
+
+sanity=args.checktype
 
 failcount = 0
 successcount = 0
@@ -84,13 +87,16 @@ def createOSSI():
 
 def main():
     extsanitycheck()
-    if failcount < 1:
-        createOSSI()
-        print "Processed ", successcount, ' extensions.'
-    else:
+    if failcount > 0 and sanity == 'strict':
         print
         print '****not creating OSSI file because it isn\'t clean.'
         print 'There are ', failcount, 'errors in the file.\nPlease correct them.'
+    else:
+        createOSSI()
+        print "Processed ", successcount, ' extensions.'
+        print "OSSI file is ", args.outfile
+
+
 
 main()
 
