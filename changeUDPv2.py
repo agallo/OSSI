@@ -14,7 +14,7 @@ parser.add_argument('-o', '--outfile', dest='outfile',
                     help="specify output file. Default is extfile.OSSI",
                     default='extfile.OSSI')
 
-# make a change
+
 
 '''
 the extension file must be a list of 5 digit extensions
