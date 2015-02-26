@@ -17,6 +17,10 @@ parser.add_argument('-o', '--outfile', dest='outfile',
 parser.add_argument('-c', '--checktype', dest='checktype',
                     help='Sanity checking type. Default is strict (die if file is not clean)',
                     default='strict')
+parser.add_argument('-v', '--verbose', dest='verbose', action='store_true',
+                    help="verbosity of checking. Default is True',",
+                    default=True)
+
 args = parser.parse_args()
 
 
@@ -46,6 +50,8 @@ def extsanitycheck():
             int(line)
         except ValueError:
             failcount += 1
+            if args.verbose:
+                print "Error on line ", counter
         counter += 1
     return failcount
 
