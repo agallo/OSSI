@@ -2,6 +2,7 @@ __author__ = 'agallo'
 
 
 from argparse import ArgumentParser
+import os
 
 parser = ArgumentParser(description="Script to generate an OSSI file for mass"
                                     " Uniform Dialing Plan (UDP) changes")
@@ -49,7 +50,6 @@ def extsanitycheck():
         try:
             int(line)
         except ValueError:
-#            print "line ", counter, "is not a valid extension"
             failcount += 1
         counter += 1
     return failcount
@@ -89,8 +89,6 @@ def createOSSI():
             print >> outfile
             successcount += 1
         except:
-           # print 'Skipping line ', currentline, '. It is not a number.'
-           # print failcount
             failcount += 1
 
     return successcount, failcount
@@ -102,6 +100,8 @@ def main():
         print
         print '****not creating OSSI file because it isn\'t clean.'
         print 'There are ', failcount, 'errors in the file.\nPlease correct them.'
+        outfile.close()
+        os.remove(args.outfile)
     else:
         createOSSI()
         print "Processed ", successcount, ' extensions.'
