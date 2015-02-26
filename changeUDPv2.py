@@ -5,12 +5,13 @@ from argparse import ArgumentParser
 
 parser = ArgumentParser()
 
-parser.add_argument('-i', '--infile', dest='infile',
+parser.add_argument('-i', '--infile', dest='extfile',
                     help="specify input file. Default is extfile",
                     default='extensions')
 parser.add_argument('-o', '--outfile', dest='outfile',
                     help="specify output file. Default is extfile.OSSI",
                     default='extfile.OSSI')
+args = parser.parse_args()
 
 '''
 the extension file must be a list of 5 digit extensions
