@@ -100,7 +100,8 @@ def main():
     else:
         createOSSI()
         print "Processed ", successcount, ' extensions.'
-        print failcount, "lines were skipped because of errors on the line."
+        if failcount > 0:
+            print failcount, "lines were skipped because of errors on the line."
         print "OSSI file is ", args.outfile
 
 
