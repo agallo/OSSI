@@ -65,24 +65,33 @@ def extsanitycheck():
 
 def createOSSI():
     extensions.seek(0)
+    currentline = 0
     global successcount
+    global failcount
     for line in extensions:
+        currentline += 1
         currext = line.splitlines()[0]
-        print >> outfile, 'cchange uniform-dialplan', currext
-        print >> outfile, matchingpattern
-        print >> outfile, '%s%s' % ('d', currext)
-        print >> outfile, length
-        print >> outfile, "%s%s" % ('d', '5')
-        print >> outfile, delete
-        print >> outfile, "%s%s" % ('d', '1')
-        print >> outfile, insert
-        print >> outfile, "%s%s" % ('d', '142')
-        print >> outfile, net
-        print >> outfile, "%s%s" % ('d', 'aar')
-        print >> outfile, 't'
-        print >> outfile
-        successcount += 1
-    return successcount
+        try:
+            int(currext)
+            print >> outfile, 'cchange uniform-dialplan', currext
+            print >> outfile, matchingpattern
+            print >> outfile, '%s%s' % ('d', currext)
+            print >> outfile, length
+            print >> outfile, "%s%s" % ('d', '5')
+            print >> outfile, delete
+            print >> outfile, "%s%s" % ('d', '1')
+            print >> outfile, insert
+            print >> outfile, "%s%s" % ('d', '142')
+            print >> outfile, net
+            print >> outfile, "%s%s" % ('d', 'aar')
+            print >> outfile, 't'
+            print >> outfile
+            successcount += 1
+        except:
+            print 'Skipping line ', currentline, '. It is not a number.'
+            failcount += 1
+
+    return successcount, failcount
 
 
 def main():
