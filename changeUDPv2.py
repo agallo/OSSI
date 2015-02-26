@@ -15,6 +15,7 @@ outfile = open('extfile.ossi', 'w')
 
 failcount = 0
 
+
 # declare field addresses
 # these are the CM database addresses used to identify
 # different fields within CM forms
@@ -34,6 +35,7 @@ def extsanitycheck():
             print "line ", counter, "is not a valid extension"
             failcount += 1
         counter += 1
+    return(failcount)
 
 
 # reading extensions from the file:
