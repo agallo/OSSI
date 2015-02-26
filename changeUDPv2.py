@@ -27,6 +27,7 @@ net    = "f6c03ff01"
 
 
 def extsanitycheck():
+    global failcount
     counter = 1
     for line in extensions:
         try:
@@ -71,7 +72,9 @@ def main():
     if failcount < 1:
         createOSSI()
     else:
-        print 'not creating OSSI file because it isn\'t clean'
+        print
+        print '****not creating OSSI file because it isn\'t clean.'
+        print 'There are ', failcount, 'errors in the file.\nPlease correct them.'
 
 main()
 
