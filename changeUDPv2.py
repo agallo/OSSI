@@ -3,7 +3,9 @@ __author__ = 'agallo'
 
 from argparse import ArgumentParser
 
-parser = ArgumentParser()
+parser = ArgumentParser(description="Script to generate an OSSI file for mass"
+                                    " Uniform Dialing Plan (UDP) changes")
+
 
 parser.add_argument('-i', '--infile', dest='extfile',
                     help="specify input file. Default is extfile",
@@ -20,8 +22,6 @@ print args
 the extension file must be a list of 5 digit extensions
 one per line.  no checking is done to ensure that the
 entries are valid dial plan extensions
-T he output is always extfile.ossi and will be overwritten
-if it exists
 '''
 extensions = open(args.extfile, 'r')
 outfile = open(args.outfile, 'w')
