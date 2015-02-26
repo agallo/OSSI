@@ -24,10 +24,12 @@ net    = "f6c03ff01"
 
 
 def extsanitycheck():
-    print "entering sanity chekc function"
-    for counter, line in extensions:
+    counter = 1
+    for line in extensions:
         if not isinstance(line, int):
             print "error on line ", counter, '. ', line, ' is not an integer'
+        counter += 1
+
 
 # reading extensions from the file:
 # splitlines was used rather than 'for each line in' because
@@ -61,6 +63,7 @@ def main():
     extsanitycheck()
     createOSSI()
 
+main()
 
 extensions.close()
 outfile.close()
