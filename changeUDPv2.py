@@ -6,15 +6,15 @@ __author__ = 'agallo'
 '''
 the extension file must be a list of 5 digit extensions
 one per line.  no checking is done to ensure that the
-entries are valid dial plan extensions or even numbers
-it must always be called extfile.  the output is always
-extfile.ossi and will be overwritten if it exists
+entries are valid dial plan extensions
+T he output is always extfile.ossi and will be overwritten
+if it exists
 '''
 extensions = open('extfile', 'r')
 outfile = open('extfile.ossi', 'w')
 
 failcount = 0
-
+successcount = 0
 
 # declare field addresses
 # these are the CM database addresses used to identify
@@ -36,7 +36,7 @@ def extsanitycheck():
             print "line ", counter, "is not a valid extension"
             failcount += 1
         counter += 1
-    return(failcount)
+    return failcount
 
 
 # reading extensions from the file:
@@ -48,7 +48,7 @@ def extsanitycheck():
 
 
 def createOSSI():
-    print "entering createOSSI"
+    extensions.seek(0)
     for line in extensions:
         print "entering for loop"
         currext = line.splitlines()[0]
@@ -65,12 +65,15 @@ def createOSSI():
         print >> outfile, "%s%s" % ('d', 'aar')
         print >> outfile, 't'
         print >> outfile
+        successcount += 1
+    return successcount
 
 
 def main():
     extsanitycheck()
     if failcount < 1:
         createOSSI()
+        print "Processed ", successcount, ' extensions.'
     else:
         print
         print '****not creating OSSI file because it isn\'t clean.'
