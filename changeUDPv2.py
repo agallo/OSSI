@@ -24,6 +24,7 @@ net    = "f6c03ff01"
 
 
 def extsanitycheck():
+    print "entering sanity chekc function"
     for counter, line in extensions:
         if not isinstance(line, int):
             print "error on line ", counter, '. ', line, ' is not an integer'
@@ -35,8 +36,11 @@ def extsanitycheck():
 # when reading with split lists, a list was created, and [0] retrieves
 # the first value
 
+
 def createOSSI():
+    print "entering createOSSI"
     for line in extensions:
+        print "entering for loop"
         currext = line.splitlines()[0]
         print >> outfile, 'cchange uniform-dialplan', currext
         print >> outfile, matchingpattern
