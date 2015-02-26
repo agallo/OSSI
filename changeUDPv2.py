@@ -9,7 +9,7 @@ parser = ArgumentParser()
 
 parser.add_argument('-i', '--infile', dest='infile',
                     help="specify input file. Default is extfile",
-                    default='extfile')
+                    default='extensions')
 parser.add_argument('-o', '--outfile', dest='outfile',
                     help="specify output file. Default is extfile.OSSI",
                     default='extfile.OSSI')
