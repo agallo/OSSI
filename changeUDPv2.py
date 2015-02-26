@@ -23,8 +23,8 @@ entries are valid dial plan extensions
 T he output is always extfile.ossi and will be overwritten
 if it exists
 '''
-extensions = open('extfile', 'r')
-outfile = open('extfile.ossi', 'w')
+extensions = open(args.extfile, 'r')
+outfile = open(args.outfile, 'w')
 
 failcount = 0
 successcount = 0
