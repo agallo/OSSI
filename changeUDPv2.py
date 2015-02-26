@@ -49,7 +49,7 @@ def extsanitycheck():
         try:
             int(line)
         except ValueError:
-            print "line ", counter, "is not a valid extension"
+#            print "line ", counter, "is not a valid extension"
             failcount += 1
         counter += 1
     return failcount
@@ -68,6 +68,7 @@ def createOSSI():
     currentline = 0
     global successcount
     global failcount
+    failcount = 0
     for line in extensions:
         currentline += 1
         currext = line.splitlines()[0]
@@ -89,6 +90,7 @@ def createOSSI():
             successcount += 1
         except:
             print 'Skipping line ', currentline, '. It is not a number.'
+            print failcount
             failcount += 1
 
     return successcount, failcount
