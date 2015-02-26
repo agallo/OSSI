@@ -19,7 +19,7 @@ parser.add_argument('-c', '--checktype', dest='checktype',
                     default='strict')
 parser.add_argument('-v', '--verbose', dest='verbose', action='store_true',
                     help="verbosity of checking. Default is True',",
-                    default=True)
+                    default=False)
 
 args = parser.parse_args()
 
