@@ -13,6 +13,9 @@ parser.add_argument('-o', '--outfile', dest='outfile',
                     default='extfile.OSSI')
 args = parser.parse_args()
 
+print args
+
+
 '''
 the extension file must be a list of 5 digit extensions
 one per line.  no checking is done to ensure that the
