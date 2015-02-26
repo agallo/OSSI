@@ -49,8 +49,8 @@ def extsanitycheck():
 
 def createOSSI():
     extensions.seek(0)
+    global successcount
     for line in extensions:
-        print "entering for loop"
         currext = line.splitlines()[0]
         print >> outfile, 'cchange uniform-dialplan', currext
         print >> outfile, matchingpattern
