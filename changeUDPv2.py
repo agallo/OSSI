@@ -13,6 +13,8 @@ extfile.ossi and will be overwritten if it exists
 extensions = open('extfile', 'r')
 outfile = open('extfile.ossi', 'w')
 
+failcount = 0
+
 # declare field addresses
 # these are the CM database addresses used to identify
 # different fields within CM forms
@@ -26,8 +28,11 @@ net    = "f6c03ff01"
 def extsanitycheck():
     counter = 1
     for line in extensions:
-        if not isinstance(line, int):
-            print "error on line ", counter, '. ', line, ' is not an integer'
+        try:
+            int(line)
+        except ValueError:
+            print "line ", counter, "is not a valid extension"
+            failcount += 1
         counter += 1
 
 
@@ -61,7 +66,10 @@ def createOSSI():
 
 def main():
     extsanitycheck()
-    createOSSI()
+    if failcount < 1:
+        createOSSI()
+    else:
+        print 'not creating OSSI file because it isn\'t clean'
 
 main()
 
