@@ -10,7 +10,7 @@ Optional command line flags are:
                     (no output on each error)
 
 
-The default input file is extensions.  The default output file is extfile.OSSI
+The default input file is 'extensions'.  The default output file is 'extfile.OSSI'
 The default sanity checking is 'strict'.  Any other value for this parameter
 will result in 'loose' checking.  By default, the script will supress output during
 sanity checking.  Enable it with '-v' to print the line number of each offending line.
