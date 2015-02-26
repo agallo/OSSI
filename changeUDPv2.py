@@ -3,6 +3,18 @@
 __author__ = 'agallo'
 
 
+from argparse import ArgumentParser
+
+parser = ArgumentParser()
+
+parser.add_argument('-i', '--infile', dest='infile',
+                    help="specify input file. Default is extfile",
+                    default='extfile')
+parser.add_argument('-o', '--outfile', dest='outfile',
+                    help="specify output file. Default is extfile.OSSI",
+                    default='extfile.OSSI')
+
+
 '''
 the extension file must be a list of 5 digit extensions
 one per line.  no checking is done to ensure that the
