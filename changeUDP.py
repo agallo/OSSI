@@ -41,6 +41,14 @@ delete = "fec37ff01"
 insert = "f6c02ff01"
 net    = "f6c03ff01"
 
+# declare UDP parameters
+# this should eventually be moved to command line arguments
+acmlen = 5
+acmdel = 1
+acmint = 142
+acmnet = 'aar'
+
+
 
 def extsanitycheck():
     global failcount
@@ -79,13 +87,13 @@ def createOSSI():
             print >> outfile, matchingpattern
             print >> outfile, '%s%s' % ('d', currext)
             print >> outfile, length
-            print >> outfile, "%s%s" % ('d', '5')
+            print >> outfile, "%s%s" % ('d', acmlen)
             print >> outfile, delete
-            print >> outfile, "%s%s" % ('d', '1')
+            print >> outfile, "%s%s" % ('d', acmdel)
             print >> outfile, insert
-            print >> outfile, "%s%s" % ('d', '142')
+            print >> outfile, "%s%s" % ('d', acmint)
             print >> outfile, net
-            print >> outfile, "%s%s" % ('d', 'aar')
+            print >> outfile, "%s%s" % ('d', acmnet)
             print >> outfile, 't'
             print >> outfile
             successcount += 1
