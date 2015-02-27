@@ -2,6 +2,14 @@ This script takes in a file of extensions (single extension per line) and
 creates an output file that can be pasted into an Avaya Communications
 Manager (CM) terminal when set to terminal type = OSSI.
 
+Currently, this script has static values for:
+    Length
+    Delete
+    Insert digits
+    Net
+
+Future releases will take these paramters on the command line.
+
 Optional command line flags are:
     -i, --infile    file containing list of extensions
     -o, --outfile   name of the output file to write the OSSI script to
