@@ -18,7 +18,7 @@ parser.add_argument('-c', '--checktype', dest='checktype',
                     help='Sanity checking type. Default is strict (die if file is not clean)',
                     default='strict')
 # parser.add_argument('-d', '--code', dest='acmint',
-                    help="digits to insert")
+#                    help="digits to insert")
 parser.add_argument('-v', '--verbose', dest='verbose', action='store_true',
                     help="verbosity of checking. Default is True',",
                     default=False)
