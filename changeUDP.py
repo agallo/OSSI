@@ -92,7 +92,7 @@ def createOSSI():
             print >> outfile, delete
             print >> outfile, "%s%s" % ('d', acmdel)
             print >> outfile, insert
-            print >> outfile, "%s%s" % ('d', acmint)
+            print >> outfile, "%s%s" % ('d', args.acmint)
             print >> outfile, net
             print >> outfile, "%s%s" % ('d', acmnet)
             print >> outfile, 't'
