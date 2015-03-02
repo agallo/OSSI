@@ -37,11 +37,13 @@ will pass sanity checking
     9011447133444
 
 The command issued is "change uniform-dialplan 99999" for each extension in the file.
-This ensures that a blank form is presented to the script.  Couple of things to note-
-the history log will not show specific extensions being changed
-if there is already an entry for the extension, the change will fail (for that extension only) with the following
+This ensures that a blank form is presented to the script.
+Couple of things to note-
+-The history log will not show specific extensions being changed
+-If there is already an entry for the extension, the change will fail
+ (for that extension only) with the following
     'e2 6c01ff01 b3d1 Entry already exists in the table'
-The history log will show an entry
+ The history log will show an entry
     'cha  uniform-dial 99999 DENIED: -11853'
 
 
