@@ -5,7 +5,6 @@ Manager (CM) terminal when set to terminal type = OSSI.
 Currently, this script has static values for:
     Length
     Delete
-    Insert digits
     Net
 
 Future releases will take these paramters on the command line.
@@ -14,6 +13,7 @@ Optional command line flags are:
     -i, --infile    file containing list of extensions
     -o, --outfile   name of the output file to write the OSSI script to
     -c, --checktype the type of sanity checking to be done on the input file
+    -d, --code      UDP 'insert digits'
     -v, --verbose   print line number of each errored line. Default is quite
                     (no output on each error)
 
@@ -35,6 +35,17 @@ will pass sanity checking
     301
     200010001
     9011447133444
+
+The command issued is "change uniform-dialplan 99999" for each extension in the file.
+This ensures that a blank form is presented to the script.  Couple of things to note-
+the history log will not show specific extensions being changed
+if there is already an entry for the extension, the change will fail (for that extension only) with the following
+    'e2 6c01ff01 b3d1 Entry already exists in the table'
+The history log will show an entry
+    'cha  uniform-dial 99999 DENIED: -11853'
+
+
+
 
 
 OSSI is a hidden terminal type available when logging in via the SAT.
