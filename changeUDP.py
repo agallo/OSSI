@@ -1,4 +1,4 @@
-__author__ = 'agallo'
+#!/usr/bin/python
 
 
 from argparse import ArgumentParser
@@ -83,7 +83,7 @@ def createOSSI():
         currext = line.splitlines()[0]
         try:
             int(currext)
-            print >> outfile, 'cchange uniform-dialplan', currext
+            print >> outfile, 'cchange uniform-dialplan 99999'
             print >> outfile, matchingpattern
             print >> outfile, '%s%s' % ('d', currext)
             print >> outfile, length
